@@ -1,52 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+//Console.WriteLine("Hello, World!");
+Tree BinaryTree = new Tree();
+BinaryTree.Insert("                 Scrum Team");
+BinaryTree.Insert("Product Owner", NodeChild.left);
+Console.Write("                        ");
+BinaryTree.Insert("Scrum Master", NodeChild.right);
+Console.WriteLine();
+Console.WriteLine();
+BinaryTree.Insert("                             Developer 1", NodeChild.left);
+Console.Write("         ");
+BinaryTree.Insert("Developer 2", NodeChild.right);
 
-string value;
+Console.WriteLine();
 
-public class Tree
-{
-    public string value;
-    private List<string> children;
-    private int childrenCount;
-    public string root { get; set; }
-    public string parent { get; set; }
-    public int ChildrenCount
-    {
-        get { return children.Count; }
-    }
+Console.WriteLine(BinaryTree.DeleteNode("Developer 2"));
+Console.WriteLine("Total number of Children in the tree: " + BinaryTree.ChildrenCount);
 
-    public List<string> Children
-    {
-        get { return children; }
-        set { children = value; }
-    }
-    
-    public void Insert(string value,  NodeChild childPosition)
-    {
-        if (root == null) root = value;
-        else
-        {
-            if (childPosition == NodeChild.left) Node.leftNode = value;
-            else Node.rightNode = value;
-            children.Add(value); 
-            parent = value;
-        }
-            
-    }
-    public void DeleteNode()
-    {
-
-    }
-}
-
-public static class Node
-{
-    internal static string rightNode;
-
-    public static string leftNode { get; set; }
-}
-
-public enum NodeChild
-{
-    left, right,
-}
+BinaryTree.DeleteTree();
+Console.WriteLine("deleted");
