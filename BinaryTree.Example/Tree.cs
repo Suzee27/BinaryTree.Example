@@ -7,17 +7,19 @@ public class Tree
     {
          children = new List<string>();
     }
-    public string value;
-    private List<string> children;
-    private int childrenCount = new int(); 
+
     public string root { get; set; }
     public string parent { get; set; }
+
     public int ChildNumber { get; set; }
+
+    private int childrenCount = new int();
     public int ChildrenCount
     {
         get {return children.Count; }
     }
 
+    private List<string> children;
     public List<string> Children
     {
         get { return children; }
@@ -46,19 +48,14 @@ public class Tree
         root = null;
     }
 
-    public List<string> DeleteNode(string value)
+    public void DeleteNode(string value)
     {
         if (value == null) throw new ArgumentNullException("node does not exist");
         else
         {
             children.Remove(value);
         }
-        return children.ToList();
+        Console.WriteLine("Node succesfully deleted");
     }
 
-    //public int GetChild(int childNumber)
-    //{
-    //    int number = children.f
-    //    return number;
-    //}
 }
